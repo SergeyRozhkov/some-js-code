@@ -58,6 +58,6 @@ export default class ListenersStore<ListenersT extends Listeners>
     eventName: EventName<ListenersT>,
     ...data: Parameters<ListenersT[typeof eventName]>
   ) => {
-    this._getCallbacks(eventName).forEach(x => x(data));
+    this._getCallbacks(eventName).forEach(x => x(...data));
   };
 }
